@@ -1,0 +1,117 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Lab1PAI</title>
+    <meta name="description" content="CV_Form">
+    <meta name="author" content="adrianB3">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+    <div class="tabs">
+        <img src="me.jpg" alt="" class="me">
+        <h3>Adrian-Gabriel Bălănescu</h3>
+        <hr>
+        <button class="tablinks" onclick="openTab(event, 'cv')">Curicullum Vitae</button>
+        <button class="tablinks" onclick="openTab(event, 'contact-form')">Contact Me</button>
+        <hr>
+    </div>
+    <div class="content">
+        <div class="content-body">
+            <div id="cv" class="tabcontent">
+                <div class="cv">
+                    <div class="col">
+                        <i class="fas fa-stroopwafel"></i>
+                        Summary
+                        <hr>
+                        <p style="text-align: justify;">
+                            I'm a system engineering student, passionate about programming,
+                            software architecture, algorithms, web development and IoT devices.
+                            I like solving problems, learning new stuff and I want to develop a career
+                            in software development.
+                        </p>
+
+                        <i class="fas fa-stroopwafel"></i>
+                        Education
+                        <hr>
+                        <ul>
+                            <li>High School</li>
+                            <ul>
+                                <li>
+                                    "Colegiul Tehnologic Constantin Brancoveanu"
+                                </li>
+                            </ul>
+
+                            <li>University</li>
+                            <ul>
+                                <li>
+                                    "Politehnica University of Timisoara"
+                                </li>
+                            </ul>
+                        </ul>
+
+                        <i class="fas fa-stroopwafel"></i>
+                        Experience
+                        <hr>
+                    </div>
+                    <div class="col">
+                        <i class="fas fa-stroopwafel"></i>
+                        Skills
+                        <hr>
+                        <i class="fas fa-stroopwafel"></i>
+                        Languages
+                        <hr>
+                        <ul>
+                            <li>Romanian - Native</li>
+                            <li>English - Proficient</li>
+                        </ul>
+                        <i class="fas fa-stroopwafel"></i>
+                        Hobbies
+                        <hr>
+                        <ul>
+                            <li>Composing electronic music</li>
+                            <li>Cycling</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="contact-form" class="tabcontent">
+                <form action="server@yahoo.com" method="post">
+                    <hr>
+                    <fieldset>
+                        <legend>Contact Me!</legend>
+                        Your name:<br>
+                        <input type="text" name="name"><br>
+
+                        What type of project are you interested in?<br>
+                        <input type="checkbox" name="custom"> Custom project<br>
+                        <input type="checkbox" name="web"> Web app <br>
+                        <input type="checkbox" name="desktop"> Desktop app <br>
+                        <input type="checkbox" name="android"> Android app <br>
+
+                        Do you require an analyst?<br>
+                        <input type="radio" name="yes">Yes <br>
+                        <input type="radio" name="no">No <br>
+
+
+
+                        Additional notes<br>
+                        <textarea name="message" style="width:200px; height:200px"></textarea>
+                        <br>
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

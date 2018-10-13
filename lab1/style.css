@@ -1,0 +1,66 @@
+body {
+  background-color: white;  
+  font-family: 'Segoe UI';
+}
+
+.container {
+    display: grid;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto;
+    grid-gap: 5px;
+}
+
+.cv {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 10px;
+}
+
+.tabs {
+    border-left: 2px solid lightblue;
+    border-right: 2px solid lightblue;
+    padding: 20px;
+}
+
+.tabs button {
+    color: black;
+    display: block;
+    padding: 22px 16px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.tabs button:hover{
+    background-color: lightblue;
+}
+
+.tabs button.active {
+    background-color: lightblue;
+}
+
+.tabcontent{
+    display: none;
+}
+
+.content {
+    border-right: 2px solid lightblue;
+}
+
+.content-body {
+    padding: 20px;
+}
+
+.me {
+    width: 150px;
+    height: 230px;
+}
+
+
