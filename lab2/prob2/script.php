@@ -4,7 +4,9 @@
     
     $nume = $_POST['nume'];
     
-    $querry = mysql_query("select * from magazin where nume_produs='$nume'");
+    mysql_query("delete from magazin where nume_produs='$nume'");
+    $querry = mysql_query("select * from magazin");
+    
     
     $nr_col = mysql_num_fields($querry);
     $nr_rows = mysql_num_rows($querry);
