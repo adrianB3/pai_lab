@@ -54,6 +54,7 @@
                 ?>
                 </tbody>
                 </table>
+                <a href="index.html" class="btn btn-outline-primary">Home</a>
             </div>
         </div>
     </div>

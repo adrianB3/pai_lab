@@ -14,27 +14,19 @@
 <div class="container">
         <div class="row">
             <div class="col-md p-5">
-                <h3>Inserare Student</h3>
+                <h3>Update student</h3>
                 <hr>
-                <form method="POST" action="inserare.php">
+                <form method="POST" action="update.php">
                         <div class="form-group">
-                          <label for="marca_form">Marca</label>
-                          <input type="text" class="form-control" name="marca_form" placeholder="Marca">
+                          <label for="cautare">Nume Student</label>
+                          <input type="text" class="form-control" name="numeStudent" placeholder="Nume">
                         </div>
                         <div class="form-group">
-                          <label for="Nume">Nume</label>
-                          <input type="text" class="form-control" name="nume_form" placeholder="Nume">
+                          <label for="Prenume">Prenume</label>
+                          <input type="text" class="form-control" name="prenumeStudent" placeholder="Prenume">
                         </div>
-                        <div class="form-group">
-                            <label for="Prenume">Prenume</label>
-                          <input type="text" class="form-control" name="prenume_form" placeholder="Prenume">
-                        </div>
-                        <div class="form-group">
-                                <label for="AnStudiu">An Studiu</label>
-                              <input type="text" class="form-control" name="anstudiu_form" placeholder="An Studiu">
-                            </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-warning">Reset</button>
+                        <button type="submit" class="btn btn-primary">Cauta</button>
+                        <button type="reset" class="btn btn-warning">Anulare</button>
                       </form>
                       <hr>
                       <a href="index.html" class="btn btn-outline-primary">Home</a>

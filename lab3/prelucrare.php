@@ -7,10 +7,10 @@
         include("inserare.html");
     }
     if ($o == 3){
-        include("update.php");
+        include("update.html");
     }
     if ($o == 4){
-        include("stergere.php");
+        include("stergere.html");
     }
 
     // The paths needs to be changed according to your server!
