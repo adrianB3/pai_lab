@@ -41,11 +41,15 @@
 		  <input type="text" class="border border-primary mt-2" id="result" value="0">
 		  <img src="bec_inchis.jpg" name="img" height="100" width="100">
 		</form>
-			
+		<hr>
+		<h5>Two way data binding experiment</h5>
+		<input type=text id="myText1">
+		<input type=text id="myText2">
+		<span type=text id="myDomElement"></span>
 		<hr>
 
 		<h5>A sign up form</h5>
-		<form>
+		<form onsubmit="checkEmail()">
 			<div class="form-group">
 				<label for="email">Email</label>
 				<input type="email" class="form-control" id="email" placeholder="name@example.com">
@@ -80,6 +84,7 @@
 			<button class="btn btn-primary" type="submit">Register</button>
 			<button class="btn btn-warning" type="reset">Reset</button>
 		</form>
+		
 	</div>
 	
     <!-- Optional JavaScript -->
@@ -112,5 +117,67 @@
 			aform.result.value=AFun(2,3);
 			document.img.src="bec_deschis.jpg";
 		}
+
+		function checkEmail(){
+			var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+			if(document.getElementById("email").value.match(mailformat)){
+				alert("Yey");
+				return true;
+			}
+			alert("This is not good");
+			return false;
+		}
+
+
+		function Binding(b) {
+				_this = this
+				this.elementBindings = []
+				this.value = b.object[b.property]
+				this.valueGetter = function(){
+						return _this.value;
+				}
+				this.valueSetter = function(val){
+						_this.value = val
+						for (var i = 0; i < _this.elementBindings.length; i++) {
+								var binding=_this.elementBindings[i]
+								binding.element[binding.attribute] = val
+						}
+				}
+				this.addBinding = function(element, attribute, event){
+						var binding = {
+								element: element,
+								attribute: attribute
+						}
+						if (event){
+								element.addEventListener(event, function(event){
+										_this.valueSetter(element[attribute]);
+								})
+								binding.event = event
+						}       
+						this.elementBindings.push(binding)
+						element[attribute] = _this.value
+						return _this
+				}
+
+				Object.defineProperty(b.object, b.property, {
+						get: this.valueGetter,
+						set: this.valueSetter
+				}); 
+
+				b.object[b.property] = this.value;
+		}
+
+		var obj = {a:123}
+		var myInputElement1 = document.getElementById("myText1")
+		var myInputElement2 = document.getElementById("myText2")
+		var myDOMElement = document.getElementById("myDomElement")
+
+		new Binding({
+			object: obj,
+			property: "a"
+		})
+		.addBinding(myInputElement1, "value", "keyup")
+		.addBinding(myInputElement2, "value", "keyup")
+		.addBinding(myDOMElement, "innerHTML")
 	</script>
 </html>
