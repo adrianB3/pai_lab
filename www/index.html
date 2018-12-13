@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>JS stuff</title>
+  </head>
+  <body>
+    <div class="container">
+		<h3>JsStuff</h3>
+		<hr>
+		<button onclick="HelloWorld('To you')" class="btn btn-outline-primary">Click Me</button>
+		<hr>
+		<h5>A table of stuff</h5>
+		<table class="table">
+			<thead>
+				<tr>
+				  <th scope="col">Hello</th>
+				  <th scope="col">to you</th>
+				  <th scope="col">too</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				  <td id="anId"></td>
+				  <td id="anotherId"></td>
+				  <td id="anotherOtherId"></td>
+				</tr>
+			  </tbody>		  
+		</table>
+		
+		<hr>
+		<h5>A form</h5>
+		<form name="aform">
+		  <input type="button" class="btn btn-primary" onclick="Result()" value="Click Me Again">
+		  <input type="text" class="border border-primary mt-2" id="result" value="0">
+		  <img src="bec_inchis.jpg" name="img" height="100" width="100">
+		</form>
+		<hr>
+		<h5>Two way data binding experiment</h5>
+		<input type=text id="myText1">
+		<input type=text id="myText2">
+		<span type=text id="myDomElement"></span>
+		<hr>
+
+		<h5>A sign up form</h5>
+		<form onsubmit="checkEmail()">
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" class="form-control" id="email" placeholder="name@example.com">
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password">
+			</div>
+			<div class="form-group">
+				<label for="name">Your Name</label>
+				<input type="text" class="form-control" id="name" placeholder="Your Name">
+			</div>
+			<div class="form-group">
+				<label for="address">Adresa</label>
+				<input type="text" class="form-control" id="address" placeholder="Your address">
+			</div>
+			<div class="form-group">
+				<label for="country">Tara</label>
+				<select class="form-control" id="country">
+					<option selected="" value="Default">(Please select a country)</option> 
+					<option value="AF">Franta</option>
+					<option value="AL">Canada</option>
+					<option value="DZ">Romania</option>
+					<option value="AS">Russia</option>
+					<option value="AD">USA</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="smth">Something about you</label>
+				<textarea class="form-control" id="smth" rows="3"></textarea>
+			</div>
+			<button class="btn btn-primary" type="submit">Register</button>
+			<button class="btn btn-warning" type="reset">Reset</button>
+		</form>
+		
+	</div>
+	
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+	<script language="JavaScript">
+		function HelloWorld(name)
+		{
+			var aThing = SomeFun();
+			alert("Hello " + name + " " + aThing);
+		}
+		
+		function SomeFun()
+		{
+			var x = 10;
+			return x;
+		}
+		
+		function AFun(a, b)
+		{
+			return a*b;
+		}
+		document.getElementById("anId").innerHTML=AFun(2,3);
+		document.getElementById("anotherId").innerHTML=AFun(4,3);
+		document.getElementById("anotherOtherId").innerHTML=AFun(5,3);
+		function Result(){
+			aform.result.value=AFun(2,3);
+			document.img.src="bec_deschis.jpg";
+		}
+
+		function checkEmail(){
+			var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+			if(document.getElementById("email").value.match(mailformat)){
+				alert("Yey");
+				return true;
+			}
+			alert("This is not good");
+			return false;
+		}
+
+
+		function Binding(b) {
+				_this = this
+				this.elementBindings = []
+				this.value = b.object[b.property]
+				this.valueGetter = function(){
+						return _this.value;
+				}
+				this.valueSetter = function(val){
+						_this.value = val
+						for (var i = 0; i < _this.elementBindings.length; i++) {
+								var binding=_this.elementBindings[i]
+								binding.element[binding.attribute] = val
+						}
+				}
+				this.addBinding = function(element, attribute, event){
+						var binding = {
+								element: element,
+								attribute: attribute
+						}
+						if (event){
+								element.addEventListener(event, function(event){
+										_this.valueSetter(element[attribute]);
+								})
+								binding.event = event
+						}       
+						this.elementBindings.push(binding)
+						element[attribute] = _this.value
+						return _this
+				}
+
+				Object.defineProperty(b.object, b.property, {
+						get: this.valueGetter,
+						set: this.valueSetter
+				}); 
+
+				b.object[b.property] = this.value;
+		}
+
+		var obj = {a:123}
+		var myInputElement1 = document.getElementById("myText1")
+		var myInputElement2 = document.getElementById("myText2")
+		var myDOMElement = document.getElementById("myDomElement")
+
+		new Binding({
+			object: obj,
+			property: "a"
+		})
+		.addBinding(myInputElement1, "value", "keyup")
+		.addBinding(myInputElement2, "value", "keyup")
+		.addBinding(myDOMElement, "innerHTML")
+	</script>
+</html>
