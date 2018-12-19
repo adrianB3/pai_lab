@@ -1,0 +1,11 @@
+<html>
+<head>
+<title>INDEX!!</title>
+</head>
+<body>
+
+<a href="http://localhost/afisare.php>Afisare</a><br>
+<a href="http://localhost/delete.html>Delete</a><br>
+
+</body>
+</html>

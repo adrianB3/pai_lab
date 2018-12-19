@@ -1,0 +1,26 @@
+<?php
+
+echo $cnpp=$_POST['cnp_form'];
+
+$connection=OCILogon("system","student","XE");
+$stmt=OCI_Parse($connection,"select * from candidati where cnp='$cnpp'");
+OCIExecute($stmt);
+
+if(OCI_Fetch_row($stmt))
+{
+    $stmt1=OCI_Parse($connection,"delete from candidati where cnp='$cnpp'");
+    OCIExecute($stmt1);
+    OCIFreeStatement($stmt1);
+    echo"Persoana a fost stearsa";
+    header("location:afisare.php");
+   
+}
+else
+{
+    echo"Persoana cautata nu se gaseste in baza de date";
+}
+
+OCIFreeStatement($stmt);
+OCILogoff($connection);
+
+?>

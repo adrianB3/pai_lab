@@ -1,0 +1,6 @@
+CREATE TABLE candidati(id int PRIMARY KEY auto_increment,
+nume varchar(30),
+prenume varchar(30),
+adresa varchar(30),
+media_bac double,
+media_multianuala_mate double);

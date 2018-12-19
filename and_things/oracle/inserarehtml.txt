@@ -1,0 +1,35 @@
+<html>
+<body>
+    <form action="http://localhost/inserare.php" method="POST">
+    <table align="center" border="4" bgcolor="blue">
+    <tr>
+    <td>CNP:</td>
+    <td><input type="text" name="cnp_form"></td>
+    </tr>
+    <tr>
+    <td>NUME:</td>
+    <td><input type="text" name="nume_form"></td>
+    </tr>
+    <tr>
+    <td>PRENUME:</td>
+    <td><input type="text" name="prenume_form"></td>
+    </tr>
+    <tr>
+    <td>ADRESA:</td>
+    <td><input type="text" name="adresa_form"></td>
+    </tr>
+    <tr>
+    <td>MEDIA BAC:</td>
+    <td><input type="text" name="media_bac_form"></td>
+    </tr>
+    <tr>
+    <td>MEDIA MULTIANUALA:</td>
+    <td><input type="text" name="media_multianuala_mate_form"></td>
+    </tr>
+    <tr>
+    <td><input type="submit" value ="adaugare"></td>
+    </tr>
+    </table>
+    </form>
+</body>
+</html>

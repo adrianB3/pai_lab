@@ -1,0 +1,39 @@
+<?php
+ 
+mysql_connect("localhost","root","") or die("nu se poate connecta");
+mysql_select_db("admitere") or die("nu se gaseste baza de date");
+echo "<br><br>";
+ 
+echo $id=$_POST['id_form'];
+echo $nume=$_POST['nume_form'];
+echo $prenume=$_POST['prenume_form'];
+echo $adresa=$_POST['adresa_form'];
+echo $media_bac=$_POST['media_bac_form'];
+echo $media_multianuala_mate=$_POST['media_multianuala_mate_form'];
+ 
+$query=mysql_query("select count(*) from candidati where id='$id'");
+$row=mysql_fetch_row($query);
+$nr=$row[0];
+if($nr==0)
+{
+    $query1=mysql_query("insert into candidati values('$id','$nume','$prenume','$adresa','$media_bac','$media_multianuala_mate')");
+    $query=mysql_query("select * from candidati where id='$id'");
+    $nr_inreg=mysql_num_rows($query);
+    if($nr_inreg>0)
+    {
+        echo "A fost adaugat";
+    }
+    else
+    {
+        echo "Nu a fost adaugat";
+    }
+    echo "<br> <a href='http://localhost/afisare.php'>Afisare</a>";
+}
+else
+{
+    echo "Candidatul exista deja ";
+}
+ 
+ 
+ 
+?>

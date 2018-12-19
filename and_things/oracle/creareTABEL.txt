@@ -1,0 +1,12 @@
+IN SQL CREEZI!!!
+
+//CREARE TABELA IN CONSOLA
+
+CREATE TABLE candidati(cnp char(13) PRIMARY KEY,
+nume varchar(30),
+prenume varchar(30),
+adresa varchar(30),
+media_bac number(4,2),
+media_multianuala_mate number(4,2));
+
+INSERT INTO candidati VALUES ('1234566785432','Bogdan','Sebastian','Str.Borsecului',8,9);

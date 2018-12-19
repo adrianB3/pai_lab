@@ -1,0 +1,26 @@
+<?php
+ 
+$cnp=$_POST['cnp_form'];
+$nume=$_POST['nume_form'];
+$prenume=$_POST['prenume_form'];
+$adresa=$_POST['adresa_form'];
+$media_bac=$_POST['media_bac_form'];
+$media_multianuala_mate=$_POST['media_multianuala_mate_form'];
+ 
+$connection=OCILogon("system","student","XE");
+$stmt=OCI_Parse($connection,"select count(*) from candidati where cnp='$cnp'");
+OCIExecute($stmt);
+if(OCIFetch($stmt))
+{
+    $stmt1=OCI_Parse($connection,"insert into candidati values('$cnp','$nume','$prenume','$adresa','$media_bac','$media_multianuala_mate')");
+    OCIExecute($stmt1);
+    OCIFreeStatement($stmt1);
+    header("location:afisare.php");
+}
+else
+{
+    echo "Persoana nu se poate adauga";
+}
+OCIFreeStatement($stmt);
+OCILogoff($connection);
+?>

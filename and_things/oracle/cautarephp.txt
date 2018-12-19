@@ -1,0 +1,32 @@
+<?php
+
+$cnnp=$_POST['cn_form'];
+
+$connection=OCILogon("system","student","XE");
+$stmt=OCI_Parse($connection,"select * from candidati where cnp='$cnnp'");
+OCIExecute($stmt);
+
+if(OCIFetch($stmt))
+{
+    $cnp=OCIResult($stmt,"CNP");
+    $nume=OCIResult($stmt,"NUME");
+    $prenume=OCIResult($stmt,"PRENUME");
+    $adresa=OCIResult($stmt,"ADRESA");
+    $media_bac=OCIResult($stmt,"MEDIA_BAC");
+    $media_multianuala_mate=OCIResult($stmt,"MEDIA_MULTIANUALA_MATE");
+    echo "<tr>";
+    echo "<th>$cnp</th>";
+    echo "<th>$nume</th>";
+    echo "<th>$prenume</th>";
+    echo "<th>$adresa</th>";
+    echo "<th>$media_bac</th>";
+    echo "<th>$media_multianuala_mate</th>";
+    echo "</tr>";
+}
+else
+{
+    echo "Persoana cautata nu exista";
+}
+OCIFreeStatement($stmt);
+OCILogoff($connection);
+?>

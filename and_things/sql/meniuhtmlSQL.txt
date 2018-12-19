@@ -1,0 +1,9 @@
+<html>
+    <head>  
+        <title>INDEX!!</title>
+    </head>
+    <body>
+    <a href="http://localhost/afisare.php">Afisare</a><br>
+    <a href="http://localhost/inserare.html">Adaugare</a><br>
+    </body>
+</html>

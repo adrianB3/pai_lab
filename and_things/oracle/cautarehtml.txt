@@ -1,0 +1,15 @@
+<html>
+<body>
+<form action="http://localhost/cautare.php" method="POST">
+<table border='4' align='center'>
+<tr>
+<td>CNP:</td>
+<td><input type="text" name="cn_form"></td>
+</tr>
+<tr>
+<td><input type="submit" value="CAUTA"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
